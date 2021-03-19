@@ -1,0 +1,34 @@
+<main >
+    <span></span>
+    <mat-card *ngIf="!isLoading">
+        <mat-card-header>
+            <div mat-card-avatar [ngStyle]="{'background-image': 'url(' + college.photo + ')', 'background-size': 'cover'}"></div>
+            <mat-card-subtitle></mat-card-subtitle>
+            <mat-card-title>{{ college?.name }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-list role="list">
+                <mat-list-item role="listitem">
+                    <a mat-raised-button [routerLink]="['/about']" class="active">{{'About' | translate}}</a>
+                </mat-list-item>
+                <mat-list-item role="listitem">
+                    <a mat-raised-button [routerLink]="['/courses']">{{'Courses' | translate}}</a>
+                </mat-list-item>
+                <mat-list-item role="listitem">
+                    <a mat-raised-button [routerLink]="['/teachers']">{{'Teachers' | translate}}</a>
+                </mat-list-item>
+                <mat-list-item role="listitem">
+                    <a mat-raised-button [routerLink]="['/contacts']">{{'Contacts' | translate}}</a>
+                </mat-list-item>
+            </mat-list>
+        </mat-card-content>
+        <mat-card-footer [innerHTML]="college.about">
+        </mat-card-footer>
+    </mat-card>
+    <mat-card *ngIf="isLoading">
+        <mat-card-content>
+            {{'Loader message' | translate}}
+        </mat-card-content>
+    </mat-card>
+    <span></span>
+</main>
